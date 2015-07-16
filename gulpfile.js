@@ -47,6 +47,6 @@ gulp.task('build:js.parser', function() {
 gulp.task('build',
   [
     'build:js.parser',
-    'build:js.detection',
+    'build:js.detection'
   ]
 );
