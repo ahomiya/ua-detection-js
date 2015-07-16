@@ -30,37 +30,23 @@ var packages        = {
 // Build tasks
 // Concatenating, minifying, optimizing and organizing files
 
-// Minified
-gulp.task('build:js.detection.minify', function() {
+gulp.task('build:js.detection', function() {
   return gulp.src(packages.js.detection)
     .pipe(concat('ua-detection.min.js'))
     .pipe(uglify())
     .pipe(gulp.dest(js.dist));
 });
 
-gulp.task('build:js.parser.minify', function() {
+gulp.task('build:js.parser', function() {
   return gulp.src(packages.js.parser)
     .pipe(concat('ua-parser.min.js'))
     .pipe(uglify())
     .pipe(gulp.dest(js.dist));
 });
 
-// Custom
-gulp.task('build:js.detection.custom', function() {
-  return gulp.src(packages.js.detection)
-    .pipe(gulp.dest(js.dist));
-});
-
-gulp.task('build:js.parser.custom', function() {
-  return gulp.src(packages.js.parser)
-    .pipe(gulp.dest(js.dist));
-});
-
 gulp.task('build',
   [
-    'build:js.parser.minify',
-    'build:js.parser.custom',
-    'build:js.detection.minify',
-    'build:js.detection.custom'
+    'build:js.parser',
+    'build:js.detection',
   ]
 );
