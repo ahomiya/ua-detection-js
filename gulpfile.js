@@ -30,6 +30,7 @@ var packages        = {
 // Build tasks
 // Concatenating, minifying, optimizing and organizing files
 
+// UA - Detection
 gulp.task('build:js.detection', function() {
   return gulp.src(packages.js.detection)
     .pipe(concat('ua-detection.min.js'))
@@ -37,6 +38,7 @@ gulp.task('build:js.detection', function() {
     .pipe(gulp.dest(js.dist));
 });
 
+// UA - Parser
 gulp.task('build:js.parser', function() {
   return gulp.src(packages.js.parser)
     .pipe(concat('ua-parser.min.js'))
@@ -46,7 +48,7 @@ gulp.task('build:js.parser', function() {
 
 gulp.task('build',
   [
-    'build:js.parser',
-    'build:js.detection',
+    'build:js.parser',                                        // Parser
+    'build:js.detection'                                      // Detection
   ]
 );
